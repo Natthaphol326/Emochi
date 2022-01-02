@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emochi</title>
+    <link rel="stylesheet" href="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <style>
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 0%;
+            }
+        }
+        
+        .container {
+            background: linear-gradient(80deg, #f1e645, #ff7b00);
+            background-size: 50%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 4s infinite;
+            margin-top: 200px;
+        }
+    </style>
+
+</head>
+
+<body style="background-color: aquamarine;">
+
+
+    <audio id="audio" src="Pop 1.mp3"></audio>
+
+    <div id="example-1" class="container">
+        <center>
+            <button class="btn" @click="LIKE()"><img src="img/like.png" alt="" width="50" height="50">&nbsp;&nbsp;{{ like }}</button>
+            <button class="btn" @click="LOVE()"><img src="img/LOVE.png" alt="" width="50" height="50">&nbsp;&nbsp;{{ love }}</button>
+            <button class="btn" @click="LAUGH()"><img src="img/LAUGH.png" alt="" width="50" height="50">&nbsp;&nbsp;{{ laugh }}</button>
+            <button class="btn" @click="WOW()"><img src="img/WOW.png" alt="" width="50" height="50">&nbsp;&nbsp;{{ wow }}</button>
+            <button class="btn" @click="SAD()"><img src="img/sad.png" alt="" width="50" height="50">&nbsp;&nbsp;{{ sad }}</button>
+            <button class="btn" @click="ANGRY()"><img src="img/angry.png" alt="" width="50" height="50">&nbsp;&nbsp;{{ angry }}</button>
+            <br>
+            <p style="font-size: 50px; font-family: 'Courier New', Courier, monospace;">{{ counter }}</p>
+        </center>
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+    var example1 = new Vue({
+        el: '#example-1',
+        data: {
+            counter: 0,
+            like: 0,
+            love: 0,
+            laugh: 0,
+            wow: 0,
+            sad: 0,
+            angry: 0,
+        },
+        methods: {
+            LIKE: function() {
+                this.counter += 10;
+                this.like += 1;
+                var audio = document.getElementById("audio");
+                audio.play();
+            },
+            LOVE: function() {
+                this.counter += 20;
+                this.love += 1;
+                var audio = document.getElementById("audio");
+                audio.play();
+            },
+            LAUGH: function() {
+                this.counter += 25;
+                this.laugh += 1;
+                var audio = document.getElementById("audio");
+                audio.play();
+            },
+            WOW: function() {
+                this.counter += 30;
+                this.wow += 1;
+                var audio = document.getElementById("audio");
+                audio.play();
+            },
+            SAD: function() {
+                this.counter -= 15;
+                this.sad += 1;
+                var audio = document.getElementById("audio");
+                audio.play();
+            },
+            ANGRY: function() {
+                this.counter -= 50;
+                this.angry += 1;
+                var audio = document.getElementById("audio");
+                audio.play();
+            },
+
+
+        },
+    })
+</script>
